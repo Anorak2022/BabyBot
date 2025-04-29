@@ -1,0 +1,26 @@
+version: "3.1"
+
+rules:
+  # Regla de bienvenida
+  - rule: Regla de bienvenida
+    steps:
+      - intent: bienvenida
+      - action: utter_bienvenida
+
+  # Regla de despedida
+  - rule: Regla de adios
+    steps:
+      - intent: adios
+      - action: utter_adios
+
+  # Regla para preguntar sobre otro tema
+  - rule: Regla de pregunta sobre otro tema
+    steps:
+      - intent: preguntar_otro_tema
+      - action: utter_preguntar_otro_tema
+
+  # Regla para responder preguntas generales sobre embarazo
+  - rule: Responder preguntas generales sobre embarazo
+    steps:
+      - intent: pregunta_general_embarazo
+      - action: action_responder_pregunta_embarazo

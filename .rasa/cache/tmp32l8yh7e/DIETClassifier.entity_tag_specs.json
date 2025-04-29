@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-fecha_ultimo_periodo",
+      "2": "I-fecha_ultimo_periodo",
+      "3": "L-fecha_ultimo_periodo",
+      "4": "U-fecha_ultimo_periodo",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-fecha_ultimo_periodo": 1,
+      "I-fecha_ultimo_periodo": 2,
+      "L-fecha_ultimo_periodo": 3,
+      "U-fecha_ultimo_periodo": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]

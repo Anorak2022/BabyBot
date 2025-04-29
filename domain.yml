@@ -1,0 +1,47 @@
+version: "3.1"
+
+intents:
+  - bienvenida
+  - adios
+  - sintomas_comunes
+  - alimentacion_saludable
+  - ejercicio_embarazo
+  - consejos_parto
+  - cuidado_bebe
+  - pregunta_peligros_embarazo
+  - apoyo_emocional
+  - pregunta_termino_embarazo
+  - preguntar_otro_tema
+  - pregunta_edad_embarazo
+  - inform_ultimo_periodo
+  - obtener_edad_embarazo
+
+responses:
+  utter_bienvenida:
+    - text: "¡Hola! ¿En qué puedo ayudarte con el embarazo hoy?"
+  utter_adios:
+    - text: "¡Hasta luego! Cuídate mucho."
+  utter_sintomas_comunes:
+    - text: "Los síntomas comunes durante el embarazo incluyen náuseas, fatiga, y aumento de la frecuencia urinaria."
+  utter_alimentacion_saludable:
+    - text: "Es importante mantener una dieta equilibrada, rica en frutas, verduras, y proteínas."
+  utter_ejercicio_embarazo:
+    - text: "El ejercicio moderado es bueno durante el embarazo, como caminar o nadar."
+  utter_consejos_parto:
+    - text: "Es importante estar preparada emocionalmente y física para el parto. Considera clases de preparación."
+  utter_cuidado_bebe:
+    - text: "Asegúrate de proporcionar un entorno seguro y amoroso para tu bebé. La lactancia materna es muy importante."
+  utter_pregunta_peligros_embarazo:
+    - text: "Durante el embarazo, algunos peligros incluyen infecciones, sangrados o hipertensión. Consulta a tu médico si tienes dudas."
+  utter_apoyo_emocional:
+    - text: "El apoyo emocional durante el embarazo es fundamental. Habla con tus seres queridos o un profesional si necesitas ayuda."
+  utter_pregunta_termino_embarazo:
+    - text: "El embarazo dura aproximadamente 40 semanas desde el primer día de tu última menstruación."
+  utter_pedir_fecha_periodo:
+    - text: "Por favor, indícame la fecha del primer día de tu última menstruación."
+  utter_preguntar_otro_tema:
+    - text: "¿Tienes alguna otra pregunta sobre embarazo?"
+
+actions:
+  - action_responder_pregunta_embarazo
+

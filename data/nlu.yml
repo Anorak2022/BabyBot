@@ -1,0 +1,126 @@
+version: "3.1"
+nlu:
+  - intent: bienvenida
+    examples: |
+      - Hola
+      - Buenas
+      - ¡Hola! ¿Cómo estás?
+      - ¡Buenos días!
+      - ¡Buenas tardes!
+      - ¡Hey! ¿Cómo te va?
+
+  - intent: adios
+    examples: |
+      - Adiós
+      - Hasta luego
+      - Nos vemos
+      - Chao
+      - Hasta pronto
+      - Me voy, cuídate
+      - gracias
+      - luego
+
+  - intent: pregunta_edad_embarazo
+    examples: |
+      - ¿Cuántos meses tengo de embarazo?
+      - ¿En qué mes estoy?
+      - ¿Cuántas semanas tengo de embarazo?
+      - ¿En qué trimestre me encuentro?
+
+  - intent: sintomas_comunes
+    examples: |
+      - ¿Qué síntomas son normales en el embarazo?
+      - Tengo náuseas, ¿es normal?
+      - ¿Es normal tener dolores en la espalda?
+      - ¿Qué puedo hacer si tengo mareos?
+      - ¿Es normal estar cansada todo el tiempo?
+      - ¿Es normal tener dolor en el pecho?
+      - ¿Por qué tengo calambres en las piernas?
+
+  - intent: alimentacion_saludable
+    examples: |
+      - ¿Qué puedo comer durante el embarazo?
+      - ¿Cuáles son los alimentos recomendados en el embarazo?
+      - ¿Puedo comer sushi estando embarazada?
+      - ¿Qué alimentos debo evitar?
+      - ¿Es bueno tomar vitaminas durante el embarazo?
+      - ¿Puedo comer frutas tropicales durante el embarazo?
+      - ¿Es seguro comer chocolate estando embarazada?
+      - puedo consumir licor o cerveza?
+      
+
+  - intent: ejercicio_embarazo
+    examples: |
+      - ¿Puedo hacer ejercicio estando embarazada?
+      - ¿Qué tipo de ejercicio es seguro durante el embarazo?
+      - ¿Es bueno caminar durante el embarazo?
+      - ¿Cuántos minutos al día debo hacer ejercicio?
+      - ¿Puedo hacer yoga estando embarazada?
+      - ¿Es bueno nadar durante el embarazo?
+
+  - intent: consejos_parto
+    examples: |
+      - ¿Cómo debo prepararme para el parto?
+      - ¿Qué puedo hacer para aliviar el dolor del parto?
+      - ¿Cuál es la mejor posición para dar a luz?
+      - ¿Qué debo llevar al hospital para el parto?
+      - ¿Cuándo debo ir al hospital para dar a luz?
+      - ¿Cómo saber si es el momento del parto?
+
+  - intent: cuidado_bebe
+    examples: |
+      - ¿Cómo puedo cuidar a mi bebé recién nacido?
+      - ¿Cuándo debo empezar a darle alimentos sólidos a mi bebé?
+      - ¿Cómo sé si mi bebé está bien alimentado?
+      - ¿Qué debo hacer si mi bebé llora mucho?
+      - ¿Qué tipo de pañales debo usar para mi bebé?
+      - ¿Cómo puedo aliviar los cólicos de mi bebé?
+
+  - intent: pregunta_peligros_embarazo
+    examples: |
+      - ¿Cuáles son los peligros en el embarazo?
+      - ¿Es peligroso tener presión alta durante el embarazo?
+      - ¿Qué pasa si tengo sangrado durante el embarazo?
+      - ¿Qué debo hacer si tengo contracciones antes de tiempo?
+      - ¿Puedo hacer viajes largos durante el embarazo?
+      - ¿Qué riesgo tiene tener diabetes gestacional?
+
+  - intent: apoyo_emocional
+    examples: |
+      - Me siento triste durante mi embarazo.
+      - ¿Es normal sentirse tan cansada emocionalmente?
+      - Necesito apoyo, me siento abrumada.
+      - ¿Es común sentirse ansiosa durante el embarazo?
+      - ¿Cómo puedo aliviar el estrés en el embarazo?
+      - Me siento sola, ¿puedes ayudarme?
+      - Me siento muy emocional, ¿es normal?
+
+  - intent: pregunta_termino_embarazo
+    examples: |
+      - ¿Cuándo termina el embarazo?
+      - ¿Cuánto dura un embarazo normalmente?
+      - ¿Cuántos meses dura el embarazo?
+      - ¿A qué semana termina el embarazo?
+
+  - intent: preguntar_otro_tema
+    examples: |
+      - ¿De qué otra cosa puedes hablar?
+      - ¿Puedes hablar sobre tecnología?
+      - ¿Me puedes contar un chiste?
+      - ¿Cómo está el clima hoy?
+      - ¿Puedes ayudarme con temas de trabajo?
+
+  - intent: pregunta_general_embarazo
+    examples: |
+      - Tengo una pregunta sobre el embarazo
+      - Quiero saber algo sobre mi embarazo
+      - Me da curiosidad algo del embarazo
+      - ¿Podés ayudarme con una duda?
+      - No sé si esto es normal en mi embarazo
+      - Estoy confundida sobre algo
+      - ¿Me puedes dar más información sobre el embarazo?
+      - Tengo muchas preguntas sobre mi embarazo
+      - A los cuantos meses se nota el crecimiento del estomago?
+      - cuanto mide el bebe en x meses
+      - 
+

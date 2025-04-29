@@ -1,0 +1,64 @@
+version: "3.1"
+
+stories:
+  - story: saludo inicial
+    steps:
+      - intent: bienvenida
+      - action: utter_bienvenida
+
+  - story: despedida
+    steps:
+      - intent: adios
+      - action: utter_adios
+
+  - story: consulta sobre síntomas
+    steps:
+      - intent: sintomas_comunes
+      - action: utter_sintomas_comunes
+
+  - story: consulta sobre alimentación
+    steps:
+      - intent: alimentacion_saludable
+      - action: utter_alimentacion_saludable
+
+  - story: ejercicio durante el embarazo
+    steps:
+      - intent: ejercicio_embarazo
+      - action: utter_ejercicio_embarazo
+
+  - story: consulta sobre parto
+    steps:
+      - intent: consejos_parto
+      - action: utter_consejos_parto
+
+  - story: cuidado del bebé
+    steps:
+      - intent: cuidado_bebe
+      - action: utter_cuidado_bebe
+
+  - story: peligros durante el embarazo
+    steps:
+      - intent: pregunta_peligros_embarazo
+      - action: utter_pregunta_peligros_embarazo
+
+  - story: apoyo emocional
+    steps:
+      - intent: apoyo_emocional
+      - action: utter_apoyo_emocional
+
+  - story: término del embarazo
+    steps:
+      - intent: pregunta_termino_embarazo
+      - action: utter_pregunta_termino_embarazo
+
+  - story: manejo de otros temas
+    steps:
+      - intent: preguntar_otro_tema
+      - action: utter_preguntar_otro_tema
+
+  - story: pregunta general sobre embarazo
+    steps:
+      - intent: pregunta_general_embarazo
+      - action: action_responder_pregunta_embarazo
+
+

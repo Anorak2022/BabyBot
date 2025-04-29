@@ -1,0 +1,6 @@
+{
+  "rule_only_slots": [
+    "fecha_ultimo_periodo"
+  ],
+  "rule_only_loops": []
+}

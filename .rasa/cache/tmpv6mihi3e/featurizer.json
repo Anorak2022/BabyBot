@@ -1,0 +1,64 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "adios": 0,
+        "alimentacion_saludable": 1,
+        "apoyo_emocional": 2,
+        "back": 3,
+        "bienvenida": 4,
+        "consejos_parto": 5,
+        "cuidado_bebe": 6,
+        "ejercicio_embarazo": 7,
+        "nlu_fallback": 8,
+        "otros": 9,
+        "out_of_scope": 10,
+        "pregunta_edad_embarazo": 11,
+        "pregunta_peligros_embarazo": 12,
+        "pregunta_termino_embarazo": 13,
+        "preguntar_otro_tema": 14,
+        "restart": 15,
+        "session_start": 16,
+        "sintomas_comunes": 17
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_calcular_edad_embarazo": 13,
+        "utter_adios": 14,
+        "utter_alimentacion_saludable": 15,
+        "utter_apoyo_emocional": 16,
+        "utter_bienvenida": 17,
+        "utter_consejos_parto": 18,
+        "utter_cuidado_bebe": 19,
+        "utter_ejercicio_embarazo": 20,
+        "utter_otros": 21,
+        "utter_pregunta_peligros_embarazo": 22,
+        "utter_pregunta_termino_embarazo": 23,
+        "utter_preguntar_otro_tema": 24,
+        "utter_sintomas_comunes": 25
+      },
+      "entities": {},
+      "slots": {
+        "fecha_ultimo_periodo_0": 0
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

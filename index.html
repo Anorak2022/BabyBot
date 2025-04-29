@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chatbot con Rasa</title>
+</head>
+<body>
+  <h1>Bienvenido a mi chatbot</h1>
+  <div id="webchat"></div>
+
+  <!-- ⚠️ USAR LA VERSIÓN ANTIGUA COMPATIBLE -->
+  <script src="https://cdn.jsdelivr.net/npm/@rasahq/rasa-webchat@1.0.1/lib/index.min.js"></script>
+
+  <script>
+    WebChat.default.init({
+      selector: "#webchat",
+      initPayload: "/start",
+      customData: { language: "es" },
+      socketUrl: "http://localhost:5005", // o la IP si estás en otra máquina
+      title: "Asistente Virtual",
+      subtitle: "¿En qué puedo ayudarte?",
+      inputTextFieldHint: "Escribe tu mensaje...",
+      showCloseButton: true,
+      profileAvatar: "https://cdn-icons-png.flaticon.com/512/4712/4712104.png",
+      params: {
+        storage: "session"
+      }
+    });
+  </script>
+</body>
+</html>
