@@ -6,7 +6,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from typing import Any, Dict, List
 
 # Crear el cliente de OpenAI usando la clave del entorno
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="")
 
 class ActionResponderPreguntaEmbarazo(Action):
     def name(self) -> str:
