@@ -4,36 +4,22 @@ language: "es"
 
 # Pipeline de procesamiento
 pipeline:
-  # Tokenizador: Tokeniza el texto de entrada.
 - name: WhitespaceTokenizer
-
-  # Extractor de entidades: Utiliza expresiones regulares para extraer entidades del texto.
 - name: RegexEntityExtractor
-
-
-  # Vectorizador de características de texto: Convierte las palabras en vectores de frecuencia de aparición.
 - name: CountVectorsFeaturizer
-
-  # Clasificador DIET: Clasifica las intenciones y extrae entidades de manera eficiente.
 - name: DIETClassifier
-  epochs: 100      # Puedes ajustar el número de épocas según tu necesidad.
-
-  # Mapeador de sinónimos de entidades: Normaliza las entidades para que tengan la misma etiqueta si son sinónimos.
+  epochs: 100        # Puedes ajustar el número de épocas según tu necesidad.
 - name: EntitySynonymMapper
-
-  # Selector de respuestas: Se usa para manejar respuestas precargadas.
 - name: ResponseSelector
   epochs: 100
-
-  # Clasificador de respuesta por defecto (Fallback) en caso de baja confianza.
 - name: FallbackClassifier
-  threshold: 0.3      # Si la confianza es menor a 0.3, el clasificador activa el fallback.
+  threshold: 0.3        # Si la confianza es menor a 0.3, el clasificador activa el fallback.
 
 # Políticas
 policies:
   # Política de predicción de las intenciones y entidades con el clasificador DIET
 - name: MemoizationPolicy
-  max_history: 5      # Ajusta el historial de las predicciones previas.
+  max_history: 5        # Ajusta el historial de las predicciones previas.
 
   # Política de respuesta predicha basada en el estado del diálogo (Rasa 3.1)
 - name: RulePolicy
@@ -41,6 +27,8 @@ policies:
   # Política de seguimiento de conversación: Establece cómo manejar el diálogo entre los pasos
 - name: TEDPolicy
   max_history: 5
-  epochs: 100      # Se ajusta el número de épocas para mejorar la capacidad de predicción.
+  epochs: 100        # Se ajusta el número de épocas para mejorar la capacidad de predicción.
 
-assistant_id: 20250410-005036-linear-tread
+  # Si la predicción de la intención o la clasificación es de baja confianza, activa el fallback.
+- name: RulePolicy    # Usamos esta política para manejar las reglas y fallback.
+assistant_id: 20250501-225225-white-mill

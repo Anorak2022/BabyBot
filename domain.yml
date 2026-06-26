@@ -15,33 +15,50 @@ intents:
   - pregunta_edad_embarazo
   - inform_ultimo_periodo
   - obtener_edad_embarazo
+  - pregunta_general_embarazo
+  - nlu_fallback
 
 responses:
+
   utter_bienvenida:
-    - text: "¡Hola! ¿En qué puedo ayudarte con el embarazo hoy?"
+    - text: "¡Hola! Bienvenida al asistente de orientación sobre el embarazo. ¿En qué puedo ayudarte hoy?"
+
   utter_adios:
-    - text: "¡Hasta luego! Cuídate mucho."
+    - text: "¡Hasta pronto! Recuerda que tu salud y la de tu bebé son lo más importante. 💕"
+
   utter_sintomas_comunes:
-    - text: "Los síntomas comunes durante el embarazo incluyen náuseas, fatiga, y aumento de la frecuencia urinaria."
+    - text: "Según la Organización Mundial de la Salud (OMS), los síntomas comunes en el embarazo incluyen náuseas matutinas, fatiga, y sensibilidad en los senos. Cada mujer es diferente, pero estos síntomas son normales especialmente en el primer trimestre."
+
   utter_alimentacion_saludable:
-    - text: "Es importante mantener una dieta equilibrada, rica en frutas, verduras, y proteínas."
+    - text: "El Ministerio de Salud de El Salvador recomienda una dieta rica en frutas, verduras, legumbres y proteínas magras. Evita el consumo de alimentos ultraprocesados, cafeína en exceso y carnes crudas. Mantén una hidratación adecuada."
+
   utter_ejercicio_embarazo:
-    - text: "El ejercicio moderado es bueno durante el embarazo, como caminar o nadar."
+    - text: "La OMS sugiere al menos 150 minutos de actividad física moderada a la semana durante el embarazo, si no hay complicaciones. Caminar, nadar o hacer yoga prenatal puede ayudarte a mantenerte saludable."
+
   utter_consejos_parto:
-    - text: "Es importante estar preparada emocionalmente y física para el parto. Considera clases de preparación."
+    - text: "Prepararte para el parto incluye asistencia médica regular, educación prenatal, y apoyo emocional. MINSAL ofrece programas gratuitos para madres gestantes. Consulta con tu centro de salud local."
+
   utter_cuidado_bebe:
-    - text: "Asegúrate de proporcionar un entorno seguro y amoroso para tu bebé. La lactancia materna es muy importante."
+    - text: "El cuidado del recién nacido debe incluir lactancia materna exclusiva los primeros 6 meses (según la OMS), vacunación oportuna y un ambiente amoroso y seguro. Siempre sigue las recomendaciones de tu pediatra."
+
   utter_pregunta_peligros_embarazo:
-    - text: "Durante el embarazo, algunos peligros incluyen infecciones, sangrados o hipertensión. Consulta a tu médico si tienes dudas."
+    - text: "Algunas señales de alerta en el embarazo, según la OMS, incluyen sangrado vaginal, fiebre alta, dolor abdominal intenso o pérdida de líquido. Si experimentas alguno, acude inmediatamente a un centro médico."
+
   utter_apoyo_emocional:
-    - text: "El apoyo emocional durante el embarazo es fundamental. Habla con tus seres queridos o un profesional si necesitas ayuda."
+    - text: "El apoyo emocional es fundamental. La OMS reconoce que hasta 1 de cada 5 mujeres puede experimentar ansiedad o depresión durante el embarazo. Habla con tus seres queridos o consulta a un psicólogo si lo necesitas."
+
   utter_pregunta_termino_embarazo:
-    - text: "El embarazo dura aproximadamente 40 semanas desde el primer día de tu última menstruación."
+    - text: "El embarazo normalmente dura entre 38 y 42 semanas. Se calcula desde el primer día de tu última menstruación. Si no estás segura, un ultrasonido temprano puede ayudarte a estimar la fecha con más precisión."
+
   utter_pedir_fecha_periodo:
-    - text: "Por favor, indícame la fecha del primer día de tu última menstruación."
+    - text: "Por favor, dime la fecha del primer día de tu última menstruación para calcular la edad aproximada del embarazo."
+
   utter_preguntar_otro_tema:
-    - text: "¿Tienes alguna otra pregunta sobre embarazo?"
+    - text: "¿Tienes otra duda sobre tu embarazo? Estoy aquí para orientarte con información basada en fuentes confiables."
+
+  utter_default:
+    - text: "Lo siento, no entendí muy bien. ¿Podrías repetir o reformular tu pregunta?"
 
 actions:
   - action_responder_pregunta_embarazo
-
+  - action_openai_fallback

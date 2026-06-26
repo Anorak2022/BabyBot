@@ -51,14 +51,41 @@ stories:
       - intent: pregunta_termino_embarazo
       - action: utter_pregunta_termino_embarazo
 
-  - story: manejo de otros temas
-    steps:
-      - intent: preguntar_otro_tema
-      - action: utter_preguntar_otro_tema
-
   - story: pregunta general sobre embarazo
     steps:
       - intent: pregunta_general_embarazo
       - action: action_responder_pregunta_embarazo
+
+  - story: dudas frecuentes primer trimestre
+    steps:
+     - intent: bienvenida
+     - action: utter_bienvenida
+     - intent: sintomas_comunes
+     - action: utter_sintomas_comunes
+     - intent: alimentacion_saludable
+     - action: utter_alimentacion_saludable
+     - intent: ejercicio_embarazo
+     - action: utter_ejercicio_embarazo
+
+  - story: cuidados y parto
+    steps:
+     - intent: cuidado_bebe
+     - action: utter_cuidado_bebe
+     - intent: consejos_parto
+     - action: utter_consejos_parto
+     - intent: apoyo_emocional
+     - action: utter_apoyo_emocional
+
+  - story: dudas generales y peligros
+    steps:
+     - intent: pregunta_general_embarazo
+     - action: action_responder_pregunta_embarazo
+     - intent: pregunta_peligros_embarazo
+     - action: utter_pregunta_peligros_embarazo
+     - intent: pregunta_termino_embarazo
+     - action: utter_pregunta_termino_embarazo
+     - intent: adios
+     - action: utter_adios
+
 
 

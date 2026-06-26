@@ -1,12 +1,9 @@
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-from rasa_sdk import Action
+from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-import requests
-
-# Cargar variables del archivo .env
-load_dotenv()
+from typing import Any, Dict, List
 
 # Crear el cliente de OpenAI usando la clave del entorno
 client = OpenAI(api_key="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")
@@ -15,65 +12,79 @@ class ActionResponderPreguntaEmbarazo(Action):
     def name(self) -> str:
         return "action_responder_pregunta_embarazo"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker, domain):
-        # Obtener el texto más reciente del usuario
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[str, Any]) -> List[Dict[str, Any]]:
         pregunta = tracker.latest_message.get("text")
-
         if not pregunta:
             dispatcher.utter_message(text="No entendí tu pregunta. ¿Podrías repetirla?")
             return []
 
         try:
-            # Llamar al modelo GPT-3.5-Turbo con la pregunta del usuario
+            # Directamente procesamos la pregunta sin necesidad de validación extra
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "Eres un asistente médico experto en temas de embarazo. Responde de forma clara, empática y precisa."},
+                messages=[ 
+                    {"role": "system", "content": (
+                        "Eres un asistente médico experto en embarazo. "
+                        "Responde de forma clara, empática y precisa. "
+                        "solo responde preguntas de embarazo"
+                        "Agrega siempre un comentario bonito para la futura madre.")},
                     {"role": "user", "content": pregunta}
                 ],
-                max_tokens=100,
+                max_tokens=150,
                 temperature=0.7
             )
 
-            # Extraer la respuesta generada por el modelo
             respuesta = response.choices[0].message.content.strip()
-
-            # Enviar la respuesta al usuario
             dispatcher.utter_message(text=respuesta)
 
         except Exception as e:
-            dispatcher.utter_message(text="Lo siento, ocurrió un error al procesar tu pregunta. Intenta nuevamente.")
-            print("❌ ERROR en llamada a OpenAI:", e)
+            dispatcher.utter_message(text="Ocurrió un error procesando tu pregunta.")
+            print("❌ ERROR:", e)
 
         return []
 
-class ActionRecomendarDieta(Action):
+class ActionOpenAIFallback(Action):
     def name(self) -> str:
-        return "action_recomendar_dieta"
+        return "action_openai_fallback"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker, domain):
-        # Obtén la semana de embarazo desde el slot
-        semana_embarazo = tracker.get_slot("semana_embarazo") or "1"
-
-        # Llama a la API de Nutrition API de API Ninjas
-        api_url = f"https://api.api-ninjas.com/v1/nutrition?query=fruta&semana={semana_embarazo}"
-        headers = {"X-Api-Key": "TU_API_KEY"}
-        response = requests.get(api_url, headers=headers)
-
-        if response.status_code == 200:
-            data = response.json()
-            if data:
-                # Extrae la información nutricional
-                alimento = data[0]
-                mensaje = (
-                    f"Para la semana {semana_embarazo} de embarazo, te recomiendo consumir {alimento['name']}."
-                    f" Contiene {alimento['calories']} calorías, {alimento['protein_g']}g de proteína,"
-                    f" {alimento['carbohydrates_total_g']}g de carbohidratos y {alimento['fat_total_g']}g de grasa."
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[str, Any]) -> List[Dict[str, Any]]:
+        
+        # Obtén el mensaje del usuario
+        mensaje_usuario = tracker.latest_message.get("text", "").lower()
+        
+        # Lista de palabras clave relacionadas con embarazo
+        palabras_clave_embarazo = [
+            "embarazo", "gestación", "maternidad", "bebé", "trimestre", "parto", 
+            "náuseas", "ecografía", "consultas", "embarazada", "feto", "sintomas", "labor de parto"
+        ]
+        
+        # Verifica si la pregunta contiene palabras clave relacionadas con embarazo
+        if any(palabra in mensaje_usuario for palabra in palabras_clave_embarazo):
+            try:
+                # Enviar la pregunta a OpenAI para procesarla
+                response = client.chat.completions.create(
+                    model="gpt-3.5-turbo",
+                    messages=[ 
+                        {"role": "system", "content": (
+                            "Eres un asistente médico especializado en embarazo. "
+                            "Responde de forma clara, empática y profesional. "
+                            "Incluye siempre una fuente confiable al final como la OMS, CDC o MedlinePlus. "
+                            "Solo debes hablar sobre el embarazo, si preguntan sobre otro tema diles que no estás hecho para eso.")},
+                        {"role": "user", "content": mensaje_usuario}
+                    ],
+                    max_tokens=200,
+                    temperature=0.7
                 )
-            else:
-                mensaje = "No se encontraron recomendaciones para esta semana."
-        else:
-            mensaje = "Hubo un error al obtener las recomendaciones de dieta."
 
-        dispatcher.utter_message(text=mensaje)
+                # Recupera la respuesta de OpenAI
+                respuesta = response.choices[0].message.content.strip()
+                dispatcher.utter_message(text=respuesta)
+
+            except Exception as e:
+                dispatcher.utter_message(text="Lo siento, no pude generar una respuesta en este momento.")
+                print("❌ ERROR:", e)
+        else:
+            # Si la pregunta no está relacionada con el embarazo
+            dispatcher.utter_message(text="Lo siento, no puedo responder preguntas sobre otros temas. Solo puedo ayudar con información relacionada al embarazo.")
+        
         return []

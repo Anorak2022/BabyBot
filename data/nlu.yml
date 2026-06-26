@@ -8,6 +8,7 @@ nlu:
       - ¡Buenos días!
       - ¡Buenas tardes!
       - ¡Hey! ¿Cómo te va?
+      - como estas?
 
   - intent: adios
     examples: |
@@ -36,17 +37,6 @@ nlu:
       - ¿Es normal estar cansada todo el tiempo?
       - ¿Es normal tener dolor en el pecho?
       - ¿Por qué tengo calambres en las piernas?
-
-  - intent: alimentacion_saludable
-    examples: |
-      - ¿Qué puedo comer durante el embarazo?
-      - ¿Cuáles son los alimentos recomendados en el embarazo?
-      - ¿Puedo comer sushi estando embarazada?
-      - ¿Qué alimentos debo evitar?
-      - ¿Es bueno tomar vitaminas durante el embarazo?
-      - ¿Puedo comer frutas tropicales durante el embarazo?
-      - ¿Es seguro comer chocolate estando embarazada?
-      - puedo consumir licor o cerveza?
       
 
   - intent: ejercicio_embarazo
@@ -122,5 +112,14 @@ nlu:
       - Tengo muchas preguntas sobre mi embarazo
       - A los cuantos meses se nota el crecimiento del estomago?
       - cuanto mide el bebe en x meses
-      - 
-
+      - ¿Qué alimentos debo evitar durante el embarazo?
+      - ¿Qué señales indican que el parto está cerca?
+      - ¿Qué vacunas debo recibir estando embarazada?
+      - ¿Qué puedo comer durante el embarazo?
+      - ¿Cuáles son los alimentos recomendados en el embarazo?
+      - ¿Puedo comer sushi estando embarazada?
+      - ¿Qué alimentos debo evitar?
+      - ¿Es bueno tomar vitaminas durante el embarazo?
+      - ¿Puedo comer frutas tropicales durante el embarazo?
+      - ¿Es seguro comer chocolate estando embarazada?
+      - puedo consumir licor o cerveza?
